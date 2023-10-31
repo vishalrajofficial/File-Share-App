@@ -22,13 +22,16 @@ const Getfile = () => {
 
   return (
     <div className='container'>
-      <div>
-        <b>{fileData?.fileName}</b>
         {/* <p>{fileData?.fileSize}</p>
             <p>{fileData?.fileType}</p> */}
-        {fileData? <img src={fileData?.publicUrl} alt="image" /> : null}
-        <button className='button' onClick={() => window.open(fileData?.publicUrl)}>Download</button>
-      </div>
+        {fileData? <img src={fileData?.publicUrl} alt="image" className='fileImg' /> : null}
+        <b>{fileData?.fileName}</b>
+        <div className='btn-div'>
+        <button className='button'   onClick={() => window.open(fileData?.publicUrl)}>Preview</button>
+        <a href={fileData?.filename} download="newimg.png">
+        <button className='button'>Click to download</button>
+        </a>
+        </div>
     </div>
   )
 }
