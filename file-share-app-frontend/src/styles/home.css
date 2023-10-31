@@ -1,0 +1,20 @@
+.uploadBox {
+    width: 50%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.download-link {
+    margin: 30px 0;
+    color: #007BFF;
+    text-decoration: underline;
+}
+.loader {
+    margin: 10px 0;
+}
