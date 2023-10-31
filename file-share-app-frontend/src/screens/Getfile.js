@@ -8,7 +8,7 @@ const Getfile = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/file/${hash}`)
+      .get(`https://fileshare-server-f061.onrender.com/api/file/${hash}`)
       .then((response) => {
         const data = response.data;
         console.log(data);

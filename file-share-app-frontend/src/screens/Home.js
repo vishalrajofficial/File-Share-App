@@ -16,7 +16,7 @@ const Home = () => {
     formData.append("file", file);
 
     axios
-      .post(`http://localhost:8000/api/upload`, formData)
+      .post(`https://fileshare-server-f061.onrender.com/api/upload`, formData)
       .then((response) => {
         const data = response.data;
         console.log(data);
@@ -42,8 +42,8 @@ const Home = () => {
         {loading ? (
           <div className="loader">Loading...</div>
         ) : link && (
-          <a className="download-link" href={`http://localhost:3000/${link}`}>
-            {`http://localhost:3000/${link}`}
+          <a className="download-link" href={`https://file-share-app-sigma.vercel.app/${link}`}>
+            {`https://file-share-app-sigma.vercel.app/${link}`}
           </a>
         )}
       </div>
