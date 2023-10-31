@@ -26,6 +26,7 @@ const Getfile = () => {
         <b>{fileData?.fileName}</b>
         {/* <p>{fileData?.fileSize}</p>
             <p>{fileData?.fileType}</p> */}
+        {fileData? <img src={fileData?.publicUrl} alt="image" /> : null}
         <button className='button' onClick={() => window.open(fileData?.publicUrl)}>Download</button>
       </div>
     </div>
