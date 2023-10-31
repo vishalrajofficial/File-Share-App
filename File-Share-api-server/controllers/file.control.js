@@ -55,7 +55,7 @@ const upload_file = asyncCatch(async (req, res, next) => {
     const publicUrl = await getFilePublicUrl(bucket, fileUpload.name);
 
     //Generate short link
-    const shortUrl = crypto.createHash("md5").update(publicUrl).digest("hex");
+    const shortUrl = crypto.createHash("shake256", { outputLength: 4 }).update(publicUrl).digest("hex");
 
     //Save file metadata to mongoDB
     const newFile = new File({

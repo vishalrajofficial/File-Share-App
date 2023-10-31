@@ -42,8 +42,8 @@ const Home = () => {
         {loading ? (
           <div className="loader">Loading...</div>
         ) : link && (
-          <a className="download-link" href={`https://file-share-app-sigma.vercel.app/${link}`}>
-            {`https://file-share-app-sigma.vercel.app/${link}`}
+          <a className="download-link" href={`https://fsmart.vercel.app/${link}`}>
+            {`https://fsmart.vercel.app/${link}`}
           </a>
         )}
       </div>
