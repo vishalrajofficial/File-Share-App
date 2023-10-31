@@ -8,7 +8,7 @@ const getFilePublicUrl = async (bucket, fileName) => {
   try {
     const [url] = await bucket.file(fileName).getSignedUrl({
       action: "read",
-      expires: "03-01-2026", // Adjust the expiry date as desired
+      expires: "03-01-2028",
     });
     return url;
   } catch (error) {
@@ -34,7 +34,7 @@ const upload_file = asyncCatch(async (req, res, next) => {
 
   const new_file_name = Date.now() + "-" + file.originalname;
   const expirationDate = new Date();
-  expirationDate.setDate(expirationDate.getDate() + 7); // Set the expiration date to 7 days from now
+  expirationDate.setDate(expirationDate.getDate() + 7);
 
   const bucket = admin.storage().bucket();
   const fileUpload = bucket.file(new_file_name);
@@ -89,6 +89,7 @@ const get_file = asyncCatch( async (req, res, next) => {
     }
 
     return res.status(200).json({
+      filedata: file,
       success: true,
       filename: file.originalname,
       publicUrl: file.fileUrl,

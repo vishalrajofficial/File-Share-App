@@ -15,10 +15,6 @@ admin.initializeApp({
     messagingSenderId: "246067433123",
     appId: "1:246067433123:web:694c3df8f247479cd63916"
 
-
-
-
-
 })
 
 

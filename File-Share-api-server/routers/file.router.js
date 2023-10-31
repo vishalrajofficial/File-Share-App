@@ -6,6 +6,7 @@ import { upload_file, get_file, all_files, delete_file } from "../controllers/fi
 
 const router = express.Router();
 
+router.get("/", (req, res) => {res.send("File Share API Server")});
 router.post("/upload", isUserAuthentic, fileUploadMiddleware, upload_file);
 // router.post("/upload", upload_file);
 router.get("/files/all", isUserAuthentic, all_files);
