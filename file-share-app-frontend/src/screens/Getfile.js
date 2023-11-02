@@ -9,7 +9,7 @@ const Getfile = () => {
 
   useEffect(() => {
     axios
-      .get(`https://fileshare-server-f061.onrender.com/api/file/${hash}`)
+      .get(`https://farmartbackend.fly.dev/api/file/${hash}`)
       .then((response) => {
         const data = response.data;
         console.log(data);

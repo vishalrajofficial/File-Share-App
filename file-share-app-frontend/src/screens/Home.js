@@ -16,7 +16,7 @@ const Home = () => {
     formData.append("file", file);
 
     axios
-      .post(`https://fileshare-server-f061.onrender.com/api/upload`, formData)
+      .post(`https://farmartbackend.fly.dev/api/upload`, formData)
       .then((response) => {
         const data = response.data;
         console.log(data);

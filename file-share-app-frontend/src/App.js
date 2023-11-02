@@ -11,7 +11,7 @@ function App() {
 
 	useEffect(() => {
 		setInterval(() => {
-			axios.get('https://fileshare-server-f061.onrender.com/api/').then((res) => {
+			axios.get('https://farmartbackend.fly.dev/api/').then((res) => {
 				console.log(res.data)
 			}).catch((err) => {
 				console.log(err)
