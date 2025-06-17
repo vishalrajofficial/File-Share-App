@@ -22,5 +22,8 @@ app.use("/api/user", userRouter);
 
 //Middleware for errors
 app.use(errhandle);
+app.get('/', (req, res) => {
+    res.send('Welcome to the backend server!');
+  });
 
 export default app;
