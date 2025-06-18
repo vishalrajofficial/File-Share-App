@@ -8,13 +8,14 @@ import errhandle from "./middlewares/errorHandle.js";
 
 const app = express();
 app.use(cors({
-    " Access-Control-Allow-Origin": "*" ,
-    "Access-Control-Allow-Methods": "POST, PUT, PATCH, GET, DELETE, OPTIONS",
-    "Access-Control-Allow-Headers": "*"
+    origin: "http://localhost:3001",
+    credentials: true,
+    methods: ["POST", "PUT", "PATCH", "GET", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "Cookie"]
 }));
 
-app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(cookieParser());
 
 app.use("/api", fileRouter);

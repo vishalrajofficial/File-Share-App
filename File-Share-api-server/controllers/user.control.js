@@ -6,14 +6,24 @@ import ErrorHandler from '../utils/errorHandler.js';
 
 //Register a User
 const Register = asyncCatch( async (req, res, next) => {
-
+    console.log('Registration attempt:', req.body);
+    
     const {name, email, password} = req.body;
+    
+    // Validate required fields
+    if (!name || !email || !password) {
+        return next(new ErrorHandler("Please provide name, email, and password", 400));
+    }
+    
+    console.log('Creating user with:', { name, email, password: '***' });
+    
     const user = await User.create({
         name,
         email,
         password
     });
-
+    
+    console.log('User created successfully:', user._id);
     sendToken(user, 201, res);
 });
 
