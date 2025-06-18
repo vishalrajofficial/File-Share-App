@@ -1,128 +1,190 @@
-# File Share App
+# 📁 File Share App
 
-**File Upload and Short Link Generation Platform**
+> A modern, secure file upload and sharing platform with short link generation
 
-[https://fsmart.vercel.app/](https://fsmart.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-fsmart.vercel.app-blue)](https://fsmart.vercel.app/)
 
-**API**: [https://farmartbackend.fly.dev/](https://farmartbackend.fly.dev/)
+## 🚀 Overview
 
-## Features
+File Share App is a full-stack web application that allows users to securely upload files and generate short, shareable links. Built with modern web technologies, it provides a seamless experience for file sharing across platforms.
 
-### Frontend Features:
-- Upload file (size < 10MB & specified formats only)
-- Short Link generation for easy sharing
-- Search for a given short Link
-- Cross-platform
+## ✨ Features
 
-### Backend Features:
-- Upload any file with robust error handling
-- Short Link generation with collision avoidance
+### 🎨 Frontend
+- **Secure File Upload** - Upload files up to 10MB with format validation
+- **Short Link Generation** - Create easy-to-share URLs for your files
+- **Smart Search** - Find files using short link references
+- **Responsive Design** - Works seamlessly across all devices
+- **User Authentication** - Secure login and registration system
+- **Real-time Feedback** - Instant upload progress and status updates
 
-## Tech Stack
+### ⚙️ Backend
+- **Robust File Handling** - Comprehensive error handling and validation
+- **Collision-Free URLs** - Advanced algorithm prevents duplicate short links
+- **Secure Storage** - Files stored safely in Firebase Cloud Storage
+- **RESTful API** - Clean, documented API endpoints
+- **Database Integration** - MongoDB for reliable data persistence
 
-- **Client:** React
-- **Server:** Node, Express, MongoDB
-- **Cloud:** Google Firebase
+## 🛠️ Tech Stack
 
-## Installation - Front-end
+| Category | Technologies |
+|----------|-------------|
+| **Frontend** | React, CSS3, HTML5 |
+| **Backend** | Node.js, Express.js |
+| **Database** | MongoDB, Mongoose ODM |
+| **Storage** | Firebase Storage |
+| **Authentication** | JWT, Firebase Auth |
+| **Deployment** | Vercel (Frontend), Fly.io (Backend) |
 
-1. Clone the repository:
+## 📋 Prerequisites
 
-```bash
-git clone https://github.com/vishalrajofficial/File-Share-App.git
+Before you begin, ensure you have the following installed:
+- **Node.js** (v14 or higher)
+- **npm** or **yarn**
+- **MongoDB** (local or cloud instance)
+- **Firebase** account with Storage enabled
+
+## 🚀 Quick Start
+
+### Frontend Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/vishalrajofficial/File-Share-App.git
+   cd File-Share-App/file-share-app-frontend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Configure environment**
+   - Update the base URL in your API configuration to point to your backend
+   - For local development: `http://localhost:8000`
+
+4. **Start the development server**
+   ```bash
+   npm start
+   ```
+
+### Backend Setup
+
+1. **Navigate to backend directory**
+   ```bash
+   cd File-Share-App/File-Share-api-server
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Configuration**
+   
+   Create a `.env` file in the root directory:
+   ```env
+   PORT=8000
+   DB_URL=your_mongodb_connection_string
+   COOKIE_EXPIRY=7200000
+   JWT_SECRET=your_jwt_secret_key
+   ```
+
+4. **Firebase Setup**
+   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
+   - Enable Firebase Storage
+   - Generate service account credentials (JSON file)
+   - Place the credentials file as `firebase-cred.json` in the backend root directory
+
+5. **Start the server**
+   ```bash
+   npm start
+   ```
+
+## 🏗️ Project Structure
+
+```
+File-Share/
+├── file-share-app-frontend/     # React frontend application
+│   ├── src/
+│   │   ├── components/          # Reusable UI components
+│   │   ├── screens/             # Page components
+│   │   ├── context/             # React Context providers
+│   │   ├── services/            # API service functions
+│   │   └── styles/              # CSS stylesheets
+│   └── public/                  # Static assets
+│
+└── File-Share-api-server/       # Node.js backend API
+    ├── controllers/             # Request handlers
+    ├── models/                  # Database schemas
+    ├── routers/                 # API route definitions
+    ├── middlewares/             # Custom middleware functions
+    └── utils/                   # Utility functions
 ```
 
-2. Navigate to the project directory:
+## 🔐 Security Features
 
-```bash
-cd file-share-app-frontend
-```
+- **File Validation** - Strict file type and size validation
+- **JWT Authentication** - Secure token-based authentication
+- **Error Handling** - Comprehensive error catching and logging
+- **Input Sanitization** - Protection against malicious inputs
+- **CORS Configuration** - Proper cross-origin resource sharing setup
 
-3. Install dependencies using npm:
+## 🎯 Architecture Decisions
 
-```bash
-npm install
-```
+### Short URL Generation
+- **Algorithm**: SHA-256 hashing with timestamp and file URL
+- **Benefits**: Deterministic, collision-resistant, and URL-safe
+- **Collision Handling**: Built-in collision detection and regeneration
 
-4. Change the base URL to `http://localhost:3000`
+### File Storage Strategy
+- **Firebase Storage**: Chosen for scalability, security, and reliability
+- **Benefits**: Built-in CDN, access control, and seamless integration
+- **Backup Strategy**: Automatic redundancy through Firebase infrastructure
 
-## Installation - Backend
+### Database Design
+- **MongoDB**: Document-based storage for flexibility
+- **Mongoose ODM**: Type safety and validation
+- **Indexing**: Optimized queries for short URL lookups
 
-**Prerequisites:**
+## 🚧 Known Limitations
 
-- Node.js (v12 or above)
-- NPM (Node Package Manager)
-- MongoDB (Make sure MongoDB is installed and running locally or provide a remote MongoDB connection URL)
-- Firebase Admin credentials (You need to set up a Firebase project and obtain the service account credentials in JSON format)
+- File size limit: 10MB per upload
+- Supported formats: Images, documents, and common file types
+- Storage quota based on Firebase plan
 
-1. Clone the repository:
+## 🔮 Future Enhancements
 
-```bash
-git clone https://github.com/vishalrajofficial/File-Share-App.git
-```
+- [ ] **User Dashboard** - Comprehensive file management interface
+- [ ] **File Expiration** - Automatic cleanup of expired files
+- [ ] **Analytics** - Download tracking and usage statistics
+- [ ] **Batch Upload** - Multiple file upload support
+- [ ] **File Preview** - In-browser file preview functionality
+- [ ] **API Rate Limiting** - Enhanced security measures
+- [ ] **Mobile App** - Native mobile applications
 
-2. Navigate to the project directory:
+## 🤝 Contributing
 
-```bash
-cd File-Share-api-server
-```
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
-3. Install dependencies using npm:
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-```bash
-npm install
-```
+## 📝 License
 
-## Configuration
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-1. Create a `.env` file in the server directory of the project. Add the following environment variables to the `.env` file:
+## 🙏 Acknowledgments
 
-```env
-PORT = 8000
-DB_URL = 'Your MongoDB URL'
-COOKIE_EXPIRY = <Number>
-```
+- Firebase for reliable cloud storage
+- MongoDB for flexible data storage
+- React community for excellent documentation
 
-2. Set up a Firebase Project:
+---
 
-- Go to the Firebase Console (https://console.firebase.google.com/).
-- Click on "Add Project" or select an existing project.
-- Follow the instructions to set up your project.
-
-3. Enable Firebase Admin SDK:
-
-- Go to the Firebase Console.
-- Select your project.
-- Navigate to the "Project Settings."
-- Go to the "Service Accounts" tab.
-- Click on "Generate New Private Key" to download the service account credentials file (in JSON format). This file contains the necessary credentials to access Firebase services programmatically.
-
-4. Move the credentials file to the backend project directory (where the Node.js server code resides).
-
-### Implementation Choices
-
-**Backend Framework:**
-
-- Node.js and Express: Chosen for their lightweight and efficient nature, allowing for quick development of RESTful APIs. Express provides a robust set of features, middleware support, and a large ecosystem of extensions.
-- MongoDB and Mongoose: Utilized as the database technology to store file records and user information. MongoDB's flexible document-based storage model and Mongoose's object data modeling (ODM) provide easy integration with Node.js.
-
-**Short URL Generation:**
-
-- SHA256 Hashing Algorithm: Implemented SHA hashing algorithm to generate short URLs based on the timestamp of file upload and the public URL. SHA256 provides a unique and deterministic hash value for a given input, ensuring consistent and collision-resistant short URL generation.
-
-**File Storage:**
-
-- Firebase Storage: Leveraged Firebase Storage to store and manage uploaded files securely. Firebase Storage offers scalable and reliable cloud storage with easy integration, access control rules, and compatibility with Firebase Authentication for authorization.
-
-### Challenges Faced
-
-1. **Frontend Routing:** Addressing issues with frontend routing on remote servers, especially with hosting services like Fly.io and Vercel. This was resolved by deploying files with Firebase.
-
-2. **Hosting Considerations:** Overcoming hosting challenges to ensure smooth application performance.
-
-
-### Future Improvements
-
-1. **Enhanced Access Control:** Implement user roles and permissions for better file management.
-
-2. **File Expiration Policies:** Allow users to set expiration dates for shared files.
+<div align="center">
+  <strong>Built with ❤️</strong>
+</div>
