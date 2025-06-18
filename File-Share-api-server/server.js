@@ -8,7 +8,7 @@ import errhandle from "./middlewares/errorHandle.js";
 
 const app = express();
 app.use(cors({
-    origin: "http://localhost:3001",
+    origin: ["http://localhost:3001", "https://fsmart.vercel.app"],
     credentials: true,
     methods: ["POST", "PUT", "PATCH", "GET", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "Cookie"]
